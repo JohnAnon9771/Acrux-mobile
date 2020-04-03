@@ -1,28 +1,34 @@
-import { Platform } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
+import Constants from 'expo-constants';
 import styled from 'styled-components/native';
 
-export const Container = styled.KeyboardAvoidingView.attrs({
-  enabled: Platform.OS === 'ios',
-  behavior: 'padding',
-})`
+export const Container = styled(KeyboardAwareScrollView)`
+  flex: 1;
+  padding-top: ${Constants.statusBarHeight + 24};
+`;
+
+export const Content = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
 
-export const Image = styled.Image`
-  margin: 50px;
-`;
-
-export const TextForm = styled.TouchableOpacity`
-  justify-content: flex-start;
+export const SignLink = styled.TouchableOpacity`
+  right: 40px;
   flex-direction: row;
   color: rgba(15, 16, 32, 0.8);
   font-size: 14px;
-  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+`;
+
+export const SignLinkText = styled.Text`
+  margin-left: 5px;
+  line-height: 15px;
 `;
 
 export const Text = styled.Text`
-  margin-left: 5px;
-  line-height: 15px;
+  color: rgba(15, 16, 32, 0.8);
+  font-size: 36px;
+  margin: 50px;
 `;

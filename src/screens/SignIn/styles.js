@@ -24,11 +24,21 @@ export const SignLink = styled.TouchableOpacity`
 
 export const SignLinkText = styled.Text`
   margin-left: 5px;
-  line-height: 15px;
+  line-height: 17px;
 `;
 
 export const Text = styled.Text`
   color: rgba(15, 16, 32, 0.8);
-  font-size: 36px;
+  font-size: 30px;
   margin: 50px;
+`;
+
+export const PasswordInput = styled.View`
+  flex-direction: row;
+  justify-content: flex-end;
+`;
+
+export const SecurityPassword = styled.TouchableOpacity`
+  position: absolute;
+  padding: 10px;
 `;

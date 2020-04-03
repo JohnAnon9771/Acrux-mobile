@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,17 +8,34 @@ import { Form } from '@unform/mobile';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content, SignLink, SignLinkText, Text } from './styles';
+import {
+  Container,
+  Content,
+  SignLink,
+  SignLinkText,
+  Text,
+  PasswordInput,
+  SecurityPassword,
+} from './styles';
 
 import logo from '../../assets/logo.png';
 
 export default function SignIn() {
+  const [securityPassword, setSecurityPassword] = useState(true);
   const navigation = useNavigation();
   const formRef = useRef(null);
 
   function focusPasswordInput() {
     const inputRef = formRef.current.getFieldRef('password');
     inputRef.focus();
+  }
+
+  function showPasswordSecurity() {
+    if (!securityPassword) {
+      setSecurityPassword(true);
+    } else {
+      setSecurityPassword(false);
+    }
   }
 
   function handleSubmit(data) {}
@@ -32,21 +49,30 @@ export default function SignIn() {
           <Input
             name="email"
             keybardType="email-address"
-            placeholder="Digite seu email *"
+            placeholder="Email *"
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
             onSubmitEditing={() => focusPasswordInput()}
           />
-          <Input
-            name="password"
-            placeholder="Digite sua senha *"
-            secureTextEntry
-            returnKeyType="send"
-            onSubmitEditing={() => handleSubmit()}
-          />
+          <PasswordInput>
+            <Input
+              name="password"
+              placeholder="Senha *"
+              secureTextEntry={securityPassword}
+              returnKeyType="send"
+              onSubmitEditing={() => handleSubmit()}
+            />
+            <SecurityPassword onPress={() => showPasswordSecurity()}>
+              <Icon
+                name={securityPassword ? 'eye-slash' : 'eye'}
+                size={16}
+                color="#0F1020"
+              />
+            </SecurityPassword>
+          </PasswordInput>
           <SignLink onPress={() => navigation.navigate('SignUp')}>
-            <Icon name="share" size={16} color="#0F1020" />
+            <Icon name="sign-out" size={16} color="#0F1020" />
             <SignLinkText>Não tenho conta ainda.</SignLinkText>
           </SignLink>
         </Form>

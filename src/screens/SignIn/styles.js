@@ -18,7 +18,7 @@ export const SignLink = styled.TouchableOpacity`
   flex-direction: row;
   color: rgba(15, 16, 32, 0.8);
   font-size: 14px;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 20px;
 `;
 

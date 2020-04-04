@@ -83,7 +83,7 @@ export default function SignUp() {
               />
             </SecurityPassword>
           </PasswordInput>
-          <SignLink onPress={() => navigation.goBack()}>
+          <SignLink onPress={() => navigation.navigate('Home')}>
             <Icon name="sign-in" size={16} color="#0F1020" />
             <SignLinkText>Já tenho uma conta.</SignLinkText>
           </SignLink>

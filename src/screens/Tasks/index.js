@@ -1,32 +1,58 @@
 import React from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
 
-import {
-  Container,
-  Title,
-  Importance,
-  Content,
-  Card,
-  Matter,
-  Date,
-} from './styles';
+import Card from '../../components/Card';
+import { Container, List } from './styles';
 
 export default function Tasks() {
-  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const array = [
+    {
+      title: 'Matemática',
+      content: 'Funções quadráticas',
+      date: '12/03 até 17/03',
+      anotations:
+        'Em Matemática, uma função quadrática, um polinômio quadrático, um polinômio de grau 2 ou um polinômio de segundo grau, é uma função polinomial de segundo grau.',
+    },
+    {
+      title: 'Matemática',
+      content: 'Funções quadráticas',
+      date: '12/03 até 17/03',
+      anotations:
+        'Em Matemática, uma função quadrática, um polinômio quadrático, um polinômio de grau 2 ou um polinômio de segundo grau, é uma função polinomial de segundo grau.',
+    },
+    {
+      title: 'Matemática',
+      content: 'Funções quadráticas',
+      date: '12/03 até 17/03',
+      anotations:
+        'Em Matemática, uma função quadrática, um polinômio quadrático, um polinômio de grau 2 ou um polinômio de segundo grau, é uma função polinomial de segundo grau.',
+    },
+    {
+      title: 'Matemática',
+      content: 'Funções quadráticas',
+      date: '12/03 até 17/03',
+      anotations:
+        'Em Matemática, uma função quadrática, um polinômio quadrático, um polinômio de grau 2 ou um polinômio de segundo grau, é uma função polinomial de segundo grau.',
+    },
+    {
+      title: 'Matemática',
+      content: 'Funções quadráticas',
+      date: '12/03 até 17/03',
+      anotations:
+        'Em Matemática, uma função quadrática, um polinômio quadrático, um polinômio de grau 2 ou um polinômio de segundo grau, é uma função polinomial de segundo grau.',
+    },
+    {
+      title: 'Matemática',
+      content: 'Funções quadráticas',
+      date: '12/03 até 17/03',
+      anotations:
+        'Em Matemática, uma função quadrática, um polinômio quadrático, um polinômio de grau 2 ou um polinômio de segundo grau, é uma função polinomial de segundo grau.',
+    },
+  ];
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <Container>
-        {array.map((item) => (
-          <Card>
-            <Importance />
-            <Matter>
-              <Title>Matemática</Title>
-              <Content>Funções</Content>
-            </Matter>
-            <Date>12/03 até 17/03</Date>
-          </Card>
-        ))}
-      </Container>
-    </ScrollView>
+    <List>
+      {array.map((item, index) => (
+        <Card key={index} item={item} />
+      ))}
+    </List>
   );
 }

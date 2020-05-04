@@ -4,3 +4,6 @@
   Aplicativo Acrux - Gestão de tempo e lazer!
   </h2>
 </div>
+
+## Requisitos funcionais
+<p>Cadastro de usuários</p>
